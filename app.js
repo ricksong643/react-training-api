@@ -7,11 +7,7 @@ let data = require('./data')
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json({ limit: '10mb', type: 'application/json' }))
-app.use(cors({
-    allowedHeaders: ['token', 'content-type', 'locale', 'x-host', "user-agent", "x-forwarded-for"],
-    exposedHeaders: ['token', 'content-type', 'locale', 'x-host', "user-agent", "x-forwarded-for"],
-    origin: ['*']
-}))
+app.use(cors())
 
 app.get('/api', (req, res) => {
     return res.status(200).json(data)
